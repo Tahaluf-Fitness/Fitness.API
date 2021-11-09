@@ -9,6 +9,8 @@ namespace Tahaluf.Fitness.Core.Reopsitory
     public interface IUsersRepository
     {
         public List<ClientDTO> GetClientInfo(int id);
+        public bool DeleteUser(int id);
+
 
     }
 }

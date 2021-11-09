@@ -22,5 +22,10 @@ namespace Tahaluf.Fitness.Infra.Service
             return usersRepository.GetClientInfo(id);
         }
 
+        public bool DeleteUser(int id)
+        {
+            return usersRepository.DeleteUser(id);
+        }
+
     }
 }

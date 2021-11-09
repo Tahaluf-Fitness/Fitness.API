@@ -30,12 +30,15 @@ namespace Tahaluf.Fitness.Infra.Repository
 
         }
 
-        //public bool DeleteDisease(int id)
-        //{
-        //    var parameter = new DynamicParameters();
-        //    parameter.Add("@DiseaseID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-        //    var result = dbContext.Connection.ExecuteAsync("DeleteDisease", parameter, commandType: CommandType.StoredProcedure);
-        //    return true;
-        //}
+        public bool DeleteUser(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("@UserID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("DeleteUser", p, commandType: CommandType.StoredProcedure);
+
+            return true;
+        }
+
+
     }
 }

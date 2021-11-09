@@ -28,5 +28,14 @@ namespace Tahaluf.Fitness.API.Controllers
             return usersService.GetClientInfo(id);
         }
 
+        [HttpDelete]
+        [Route("delete/{id}")]
+        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool DeleteUser(int id)
+        {
+            return usersService.DeleteUser(id);
+        }
+
     }
 }
