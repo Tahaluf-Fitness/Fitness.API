@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tahaluf.Fitness.Core.DTO;
 using Tahaluf.Fitness.Core.Reopsitory;
 using Tahaluf.Fitness.Core.Service;
 using Tahaluf.Fitness.Data;
@@ -16,7 +17,7 @@ namespace Tahaluf.Fitness.Infra.Service
             this.dietReportRepository = dietReportRepository;
         }
 
-        public List<DietReport> GetDietReport()
+        public List<DietReportDTO> GetDietReport()
         {
             return dietReportRepository.GetDietReport();
         }
@@ -32,5 +33,8 @@ namespace Tahaluf.Fitness.Infra.Service
         {
             return dietReportRepository.DeleteDietReport(id);
         }
+
+       
+
     }
 }

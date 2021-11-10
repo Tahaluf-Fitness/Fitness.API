@@ -23,6 +23,14 @@ namespace Tahaluf.Fitness.Infra.Repository
             IEnumerable<Disease> result = dbContext.Connection.Query<Disease>("GetDisease", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<Disease> GetDiseaseByUserID(int id)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UserID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Disease> result = dbContext.Connection.Query<Disease>("getDiseaseByUserID",parameter, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
         public bool CreateDisease(Disease disease)
         {
             var parameter = new DynamicParameters();
@@ -31,10 +39,10 @@ namespace Tahaluf.Fitness.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("CreateDisease", parameter, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool UpdateDisease(Disease disease)
+        public bool UpdateDisease(Disease disease,int id)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("@DiseaseID", disease.DiseaseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("@DiseaseID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("@DiseaseTitle", disease.DiseaseTitle, dbType: DbType.String, direction: ParameterDirection.Input);
             parameter.Add("@UserID", disease.UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("UpdateDisease", parameter, commandType: CommandType.StoredProcedure);

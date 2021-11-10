@@ -36,6 +36,8 @@ namespace Tahaluf.Fitness.Infra.Service
 
                 new Claim(ClaimTypes.Email, result.Email),
                 new Claim(ClaimTypes.Role, result.RoleName),
+                new Claim("UserID", result.UserID.ToString()),
+
                 }),
                     Expires = DateTime.UtcNow.AddHours(1),//end session 
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)//algo name 

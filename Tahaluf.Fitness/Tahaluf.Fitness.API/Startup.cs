@@ -89,6 +89,9 @@ namespace Tahaluf.Fitness.API
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IUsersService, UsersService>();
 
+            services.AddScoped<IUserReportsRepository, UserReportsRepository>();
+            services.AddScoped<IUserReportsService, UserReportsService>();
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

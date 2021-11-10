@@ -24,6 +24,14 @@ namespace Tahaluf.Fitness.Infra.Repository
             IEnumerable<Measurement> result = dbContext.Connection.Query<Measurement>("GetMeasurement", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<Measurement> GetMeasurementByUserID(int id)
+        {
+            var parameter = new DynamicParameters();
+            parameter.Add("@UserID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Measurement> result = dbContext.Connection.Query<Measurement>("GetMeasurementByUserID",parameter, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
         public bool CreateMeasurement(Measurement measurement)
         {
             var parameter = new DynamicParameters();
@@ -40,10 +48,10 @@ namespace Tahaluf.Fitness.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("CreateMesurment", parameter, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool UpdateMeasurement(Measurement measurement)
+        public bool UpdateMeasurement(Measurement measurement,int id)
         {
             var parameter = new DynamicParameters();
-            parameter.Add("@MesurmentID", measurement.MesurmentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameter.Add("@MesurmentID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("@Height", measurement.Height, dbType: DbType.Double, direction: ParameterDirection.Input);
             parameter.Add("@Weight", measurement.Weight, dbType: DbType.Double, direction: ParameterDirection.Input);
             parameter.Add("@BMI", measurement.Bmi, dbType: DbType.Double, direction: ParameterDirection.Input);

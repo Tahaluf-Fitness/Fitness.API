@@ -9,6 +9,8 @@ namespace Tahaluf.Fitness.Core.DTO
         public string Email { get; set; }
         public string RoleName { get; set; }
 
+        public int UserID { get; set; }
+
 
     }
 }

@@ -23,13 +23,19 @@ namespace Tahaluf.Fitness.Infra.Service
         {
             return measurementRepository.CreateMeasurement(measurement);
         }
-        public bool UpdateMeasurement(Measurement measurement)
+        public bool UpdateMeasurement(Measurement measurement, int id)
         {
-            return measurementRepository.UpdateMeasurement(measurement);
+            return measurementRepository.UpdateMeasurement(measurement,id);
         }
         public bool DeleteMeasurement(int id)
         {
             return measurementRepository.DeleteMeasurement(id);
         }
+
+        public List<Measurement> GetMeasurementByUserID(int id)
+        {
+            return measurementRepository.GetMeasurementByUserID(id);
+        }
+
     }
 }

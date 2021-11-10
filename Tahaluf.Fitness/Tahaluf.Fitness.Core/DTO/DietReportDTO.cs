@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Tahaluf.Fitness.Core.Data;
+using System.Text;
 
-#nullable disable
-
-namespace Tahaluf.Fitness.Data
+namespace Tahaluf.Fitness.Core.DTO
 {
-    public partial class DietReport
+    public class DietReportDTO
     {
-        [Key]
         public int DietReportId { get; set; }
         public string DietFile { get; set; }
         public string DietImage { get; set; }
@@ -17,10 +13,6 @@ namespace Tahaluf.Fitness.Data
         public double? DietPeriod { get; set; }
         public int? Actualprice { get; set; }
         public int? CustomerPrice { get; set; }
-        public int? DietCategoryId { get; set; }
-
-        public virtual DietCategory DietCategory { get; set; }
-        public virtual ICollection<UserReports> UserReports { get; set; }
-
+        public string CategoryName { get; set; }
     }
 }

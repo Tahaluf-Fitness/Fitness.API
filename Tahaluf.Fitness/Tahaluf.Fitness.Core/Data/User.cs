@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Tahaluf.Fitness.Core;
+using Tahaluf.Fitness.Core.Data;
 
 #nullable disable
 
@@ -33,10 +34,10 @@ namespace Tahaluf.Fitness.Data
         public virtual ICollection<Attendance> Attendances { get; set; }
         public virtual ICollection<CompetitionComment> CompetitionComments { get; set; }
         public virtual ICollection<CreditCard> CreditCards { get; set; }
-        public virtual ICollection<DietReport> DietReports { get; set; }
         public virtual ICollection<Disease> Diseases { get; set; }
         public virtual ICollection<Measurement> Measurements { get; set; }
         public virtual ICollection<Notification> Notifications { get; set; }
+        public virtual ICollection<UserReports> UserReports { get; set; }
         public virtual ICollection<UserCompetition> UserCompetitions { get; set; }
         public virtual ICollection<UserMessage> UserMessages { get; set; }
     }

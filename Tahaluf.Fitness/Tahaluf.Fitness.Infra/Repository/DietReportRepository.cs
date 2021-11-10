@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Tahaluf.Fitness.Core.Common;
+using Tahaluf.Fitness.Core.DTO;
 using Tahaluf.Fitness.Core.Reopsitory;
 using Tahaluf.Fitness.Data;
 
@@ -18,11 +19,13 @@ namespace Tahaluf.Fitness.Infra.Repository
         {
             this.dbContext = dbContext;
         }
-        public List<DietReport> GetDietReport()
+        public List<DietReportDTO> GetDietReport()
         {
-            IEnumerable<DietReport> result = dbContext.Connection.Query<DietReport>("GetDietReport", commandType: CommandType.StoredProcedure);
+            IEnumerable<DietReportDTO> result = dbContext.Connection.Query<DietReportDTO>("GetDietReport", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+       
         public bool CreateDietReport(DietReport dietReport)
         {
             var parameter = new DynamicParameters();
@@ -32,8 +35,6 @@ namespace Tahaluf.Fitness.Infra.Repository
             parameter.Add("@DietPeriod", dietReport.DietPeriod, dbType: DbType.Double, direction: ParameterDirection.Input);
             parameter.Add("@Actualprice", dietReport.Actualprice, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("@CustomerPrice", dietReport.CustomerPrice, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("@ReportDate", dietReport.ReportDate, dbType: DbType.Date, direction: ParameterDirection.Input);
-            parameter.Add("@UserID", dietReport.UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("@DietCategoryID", dietReport.DietCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dbContext.Connection.ExecuteAsync("CreateDietReport", parameter, commandType: CommandType.StoredProcedure);
@@ -49,8 +50,6 @@ namespace Tahaluf.Fitness.Infra.Repository
             parameter.Add("@DietPeriod", dietReport.DietPeriod, dbType: DbType.Double, direction: ParameterDirection.Input);
             parameter.Add("@Actualprice", dietReport.Actualprice, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("@CustomerPrice", dietReport.CustomerPrice, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameter.Add("@ReportDate", dietReport.ReportDate, dbType: DbType.Date, direction: ParameterDirection.Input);
-            parameter.Add("@UserID", dietReport.UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameter.Add("@DietCategoryID", dietReport.DietCategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dbContext.Connection.ExecuteAsync("UpdateDietReport", parameter, commandType: CommandType.StoredProcedure);
