@@ -23,9 +23,14 @@ namespace Tahaluf.Fitness.Infra.Service
         {
             return diseaseRepository.CreateDisease(disease);
         }
-        public bool UpdateDisease(Disease disease)
+        public List<Disease> GetDiseaseByUserID(int id)
         {
-            return diseaseRepository.UpdateDisease(disease);
+            return diseaseRepository.GetDiseaseByUserID(id);
+        }
+
+        public bool UpdateDisease(Disease disease,int id)
+        {
+            return diseaseRepository.UpdateDisease(disease,id);
         }
         public bool DeleteDisease(int id)
         {

@@ -35,12 +35,22 @@ namespace Tahaluf.Fitness.API.Controllers
             return measurementService.CreateMeasurement(measurement);
         }
 
-        [HttpPut]
+        [HttpPost]
+        [Route("my-measurements/{id}")]
         [ProducesResponseType(typeof(List<Measurement>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool UpdateMeasurement(Measurement measurement)
+        public List<Measurement> CreateMeasurementByUserID(int id)
         {
-            return measurementService.UpdateMeasurement(measurement);
+            return measurementService.GetMeasurementByUserID(id);
+        }
+
+        [HttpPut]
+        [Route("update/{id}")]
+        [ProducesResponseType(typeof(List<Measurement>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool UpdateMeasurement(Measurement measurement,int id)
+        {
+            return measurementService.UpdateMeasurement(measurement,id);
         }
 
 

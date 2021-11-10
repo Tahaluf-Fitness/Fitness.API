@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tahaluf.Fitness.Core.DTO;
 using Tahaluf.Fitness.Core.Service;
 using Tahaluf.Fitness.Data;
 
@@ -21,7 +22,7 @@ namespace Tahaluf.Fitness.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(List<DietReport>),StatusCodes.Status200OK)]
-        public List<DietReport> GetDietReport()
+        public List<DietReportDTO> GetDietReport()
         {
             return dietReportService.GetDietReport();
         }
@@ -33,6 +34,15 @@ namespace Tahaluf.Fitness.API.Controllers
         {
             return dietReportService.CreateDietReport(dietReport);
         }
+
+        //[HttpPost]
+        //[Route("my-reports/{id}")]
+        //[ProducesResponseType(typeof(List<DietReport>), StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //public List<DietReport> GetDietReportByUserID(int id)
+        //{
+        //    return dietReportService.GetDietReportByUserID(id);
+        //}
 
 
         [HttpPut]

@@ -25,6 +25,13 @@ namespace Tahaluf.Fitness.API.Controllers
         {
             return diseaseService.GetDisease();
         }
+        [HttpPost]
+        [Route("my-diseases/{id}")]
+        [ProducesResponseType(typeof(List<Disease>), StatusCodes.Status200OK)]
+        public List<Disease> GetDiseaseByUserID(int id)
+        {
+            return diseaseService.GetDiseaseByUserID(id);
+        }
 
         [HttpPost]
         [ProducesResponseType(typeof(List<Disease>), StatusCodes.Status200OK)]
@@ -35,11 +42,12 @@ namespace Tahaluf.Fitness.API.Controllers
         }
 
         [HttpPut]
+        [Route("update/{id}")]
         [ProducesResponseType(typeof(List<Disease>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool UpdateDisease(Disease disease)
+        public bool UpdateDisease(Disease disease,int id)
         {
-            return diseaseService.UpdateDisease(disease);
+            return diseaseService.UpdateDisease(disease,id);
         }
 
         [HttpDelete]
