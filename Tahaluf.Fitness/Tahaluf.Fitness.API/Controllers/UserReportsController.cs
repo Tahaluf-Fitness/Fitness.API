@@ -22,7 +22,7 @@ namespace Tahaluf.Fitness.API.Controllers
             userReportsService = _userReportsService;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("my-reports/{id}")]
         [ProducesResponseType(typeof(UserReportDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -33,7 +33,7 @@ namespace Tahaluf.Fitness.API.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(UserReportDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<UserReportDTO> GetAllUserReport(int id)
+        public List<UserReportDTO> GetAllUserReport()
         {
             return userReportsService.GetAllUserReport();
         }

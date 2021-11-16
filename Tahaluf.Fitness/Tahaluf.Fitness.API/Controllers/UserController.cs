@@ -28,6 +28,30 @@ namespace Tahaluf.Fitness.API.Controllers
             return usersService.GetClientInfo(id);
         }
 
+        [HttpGet]
+        [Route("[action]")]
+        [ProducesResponseType(typeof(List<ClientDTO>), StatusCodes.Status200OK)]
+        public List<ClientDTO> GetAllEmployees()
+        {
+            return usersService.GetAllEmployees();
+        }
+        [HttpGet]
+        [Route("[action]")]
+        [ProducesResponseType(typeof(List<ClientDTO>), StatusCodes.Status200OK)]
+        public List<ClientDTO> GetAllClients()
+        {
+            return usersService.GetAllClients();
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool CreateEmployee(User user)
+        {
+            return usersService.CreateEmployee(user);
+        }
+
+
         [HttpDelete]
         [Route("delete/{id}")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]

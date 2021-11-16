@@ -9,7 +9,7 @@ namespace Tahaluf.Fitness.Core.Service
     {
         public List<Measurement> GetMeasurement();
         public bool CreateMeasurement(Measurement measurement);
-        public bool UpdateMeasurement(Measurement measurement, int id);
+        public bool UpdateMeasurement(int id, Measurement measurement);
         public bool DeleteMeasurement(int id);
 
         public List<Measurement> GetMeasurementByUserID(int id);

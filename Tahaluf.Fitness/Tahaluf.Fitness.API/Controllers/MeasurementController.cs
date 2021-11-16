@@ -35,7 +35,7 @@ namespace Tahaluf.Fitness.API.Controllers
             return measurementService.CreateMeasurement(measurement);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("my-measurements/{id}")]
         [ProducesResponseType(typeof(List<Measurement>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -48,9 +48,9 @@ namespace Tahaluf.Fitness.API.Controllers
         [Route("update/{id}")]
         [ProducesResponseType(typeof(List<Measurement>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool UpdateMeasurement(Measurement measurement,int id)
+        public bool UpdateMeasurement(int id, Measurement measurement)
         {
-            return measurementService.UpdateMeasurement(measurement,id);
+            return measurementService.UpdateMeasurement(id,measurement);
         }
 
 
