@@ -10,6 +10,12 @@ namespace Tahaluf.Fitness.Core.Reopsitory
     {
         public List<ClientDTO> GetClientInfo(int id);
         public bool DeleteUser(int id);
+        public List<ClientDTO> GetAllEmployees();
+
+        public List<ClientDTO> GetAllClients();
+        public bool CreateEmployee(User user);
+
+
 
 
     }

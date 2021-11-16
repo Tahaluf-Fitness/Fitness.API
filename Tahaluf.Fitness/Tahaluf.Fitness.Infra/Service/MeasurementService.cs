@@ -23,9 +23,9 @@ namespace Tahaluf.Fitness.Infra.Service
         {
             return measurementRepository.CreateMeasurement(measurement);
         }
-        public bool UpdateMeasurement(Measurement measurement, int id)
+        public bool UpdateMeasurement(int id, Measurement measurement)
         {
-            return measurementRepository.UpdateMeasurement(measurement,id);
+            return measurementRepository.UpdateMeasurement(id, measurement);
         }
         public bool DeleteMeasurement(int id)
         {

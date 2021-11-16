@@ -22,6 +22,25 @@ namespace Tahaluf.Fitness.Infra.Service
             return usersRepository.GetClientInfo(id);
         }
 
+        public List<ClientDTO> GetAllClients()
+        {
+            return usersRepository.GetAllClients();
+        }
+
+        public List<ClientDTO> GetAllEmployees()
+        {
+            return usersRepository.GetAllEmployees();
+        }
+
+        public bool CreateEmployee(User user)
+        {
+            return usersRepository.CreateEmployee(user);
+        }
+
+
+
+
+
         public bool DeleteUser(int id)
         {
             return usersRepository.DeleteUser(id);

@@ -48,7 +48,7 @@ namespace Tahaluf.Fitness.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("CreateMesurment", parameter, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool UpdateMeasurement(Measurement measurement,int id)
+        public bool UpdateMeasurement(int id,Measurement measurement)
         {
             var parameter = new DynamicParameters();
             parameter.Add("@MesurmentID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);

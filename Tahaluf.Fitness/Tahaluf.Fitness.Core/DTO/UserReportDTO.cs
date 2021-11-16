@@ -8,6 +8,8 @@ namespace Tahaluf.Fitness.Core.DTO
     {
 
         public int UserID { get; set; }
+        public int UserReportID { get; set; }
+        public DateTime ReportDate { get; set; }
         public string DietFile { get; set; }
         public string DietImage { get; set; }
         public string DietDescription { get; set; }
