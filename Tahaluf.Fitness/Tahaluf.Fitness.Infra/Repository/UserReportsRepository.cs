@@ -31,11 +31,7 @@ namespace Tahaluf.Fitness.Infra.Repository
             IEnumerable<UserReportDTO> result = dbContext.Connection.Query<UserReportDTO>("GetAllUserReport", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public List<ReportDTO> GetAllDietReport()
-        {
-            IEnumerable<ReportDTO> result = dbContext.Connection.Query<ReportDTO>("GetAllDietReport", commandType: CommandType.StoredProcedure);
-            return result.ToList();
-        }
+      
 
         public bool DeleteUserReport(int id)
         {

@@ -10,7 +10,6 @@ namespace Tahaluf.Fitness.Core.Service
         public List<UserReportDTO> GetUserReportByID(int id);
         public bool DeleteUserReport(int id);
         public List<UserReportDTO> GetAllUserReport();
-        public List<ReportDTO> GetAllDietReport();
 
 
 

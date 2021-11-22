@@ -21,7 +21,7 @@ namespace Tahaluf.Fitness.Infra.Repository
         }
         public List<DietReportDTO> GetDietReport()
         {
-            IEnumerable<DietReportDTO> result = dbContext.Connection.Query<DietReportDTO>("GetDietReport", commandType: CommandType.StoredProcedure);
+            IEnumerable<DietReportDTO> result = dbContext.Connection.Query<DietReportDTO>("GetAllDietReport", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

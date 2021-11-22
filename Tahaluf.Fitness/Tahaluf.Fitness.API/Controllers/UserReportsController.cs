@@ -38,14 +38,7 @@ namespace Tahaluf.Fitness.API.Controllers
             return userReportsService.GetAllUserReport();
         }
 
-        [HttpGet]
-        [Route("[action]")]
-        [ProducesResponseType(typeof(UserReportDTO), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<ReportDTO> GetAllDietReport()
-        {
-            return userReportsService.GetAllDietReport();
-        }
+    
 
         [HttpDelete]
         [Route("delete/{id}")]

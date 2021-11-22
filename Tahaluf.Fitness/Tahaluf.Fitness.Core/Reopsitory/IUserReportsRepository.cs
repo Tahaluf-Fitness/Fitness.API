@@ -11,7 +11,6 @@ namespace Tahaluf.Fitness.Core.Reopsitory
         public bool DeleteUserReport(int id);
         public List<UserReportDTO> GetAllUserReport();
 
-        public List<ReportDTO> GetAllDietReport();
 
 
 

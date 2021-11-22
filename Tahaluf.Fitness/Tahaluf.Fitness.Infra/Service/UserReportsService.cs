@@ -31,10 +31,7 @@ namespace Tahaluf.Fitness.Infra.Service
             return userReportsRepository.GetAllUserReport();
         }
 
-        public List<ReportDTO> GetAllDietReport()
-        {
-            return userReportsRepository.GetAllDietReport();
-        }
+       
 
 
 

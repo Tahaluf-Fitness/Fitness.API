@@ -15,5 +15,9 @@
     <ProjectReference Include="..\Tahaluf.Fitness.Infra\Tahaluf.Fitness.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\assets\files\diets\" />
+  </ItemGroup>
+
 
 </Project>
