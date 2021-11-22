@@ -41,13 +41,11 @@ namespace Tahaluf.Fitness.Infra.Repository
         public bool CreateEmployee(User user)
         {
             var p = new DynamicParameters();
-            p.Add("@Username", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@FirstName", user.FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@LastName", user.LastName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Email", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@Password", user.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@ConfirmPassword", user.ConfirmPassword, dbType: DbType.String, direction: ParameterDirection.Input);
-
             p.Add("@Gender", user.Gender, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@PhoneNumber1", user.PhoneNumber1, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("@DateOfBirth", user.DateOfBirth, dbType: DbType.DateTime, direction: ParameterDirection.Input);
@@ -59,6 +57,28 @@ namespace Tahaluf.Fitness.Infra.Repository
 
             var result = dbContext.Connection.ExecuteAsync("createUser", p, commandType: CommandType.StoredProcedure);
 
+            return true;
+
+        }
+
+        public bool updateUserByID(int id,User user)
+        {
+            var p = new DynamicParameters();
+            p.Add("@UserID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@FirstName", user.FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@LastName", user.LastName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Email", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Password", user.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@ConfirmPassword", user.ConfirmPassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Gender", user.Gender, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@PhoneNumber1", user.PhoneNumber1, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@DateOfBirth", user.DateOfBirth, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("@Country", user.Country, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@City", user.City, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Position", user.Position, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@Salary", user.Salary, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@RoleID", user.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("updateUserByID", p, commandType: CommandType.StoredProcedure);
             return true;
 
         }
@@ -79,6 +99,13 @@ namespace Tahaluf.Fitness.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("DeleteUser", p, commandType: CommandType.StoredProcedure);
 
             return true;
+        }
+
+        public List<StatisticsDTO> getStatistics()
+        {
+            IEnumerable<StatisticsDTO> result = dbContext.Connection.Query<StatisticsDTO>("getStatistics", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
         }
 
 

@@ -25,10 +25,9 @@ namespace Tahaluf.Fitness.Infra.Repository
             var p = new DynamicParameters();
             p.Add("@ReviewValue", review.ReviewValue, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("@Name", review.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@Status", review.Status, dbType: DbType.Binary, direction: ParameterDirection.Input);
+            p.Add("@Status", review.Status, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             p.Add("@Comment", review.Comment, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _DbContext.Connection.ExecuteAsync("CreateReview", p, commandType: CommandType.StoredProcedure);
-
             return true;
 
         }
@@ -49,6 +48,12 @@ namespace Tahaluf.Fitness.Infra.Repository
             return result.ToList();
         }
 
+        public List<Review> GetCheckedReview()
+        {
+            IEnumerable<Review> result = _DbContext.Connection.Query<Review>("GetCheckedReview", CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public bool UpdateReview(Review review)
         {
             var p = new DynamicParameters();
@@ -59,6 +64,15 @@ namespace Tahaluf.Fitness.Infra.Repository
             p.Add("@Comment", review.Comment, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _DbContext.Connection.ExecuteAsync("UpdateReview", p, commandType: CommandType.StoredProcedure);
 
+            return true;
+        }
+
+        public bool updateReviewStatus(int id,Review review)
+        {
+            var p = new DynamicParameters();
+            p.Add("@ReviewId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@Status", review.Status, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            var result = _DbContext.Connection.ExecuteAsync("updateReviewStatus", p, commandType: CommandType.StoredProcedure);
             return true;
         }
     }

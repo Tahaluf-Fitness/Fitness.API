@@ -4,12 +4,10 @@ using System.Text;
 
 namespace Tahaluf.Fitness.Core.DTO
 {
-    public class UserReportDTO
+   public class ReportDTO
     {
+        public int DietReportID { get; set; }
 
-        public int UserID { get; set; }
-        public int UserReportID { get; set; }
-        public string Email { get; set; }
         public DateTime ReportDate { get; set; }
         public string DietFile { get; set; }
         public string DietImage { get; set; }
@@ -18,6 +16,5 @@ namespace Tahaluf.Fitness.Core.DTO
         public int? Actualprice { get; set; }
         public int? CustomerPrice { get; set; }
         public string CategoryName { get; set; }
-
     }
 }

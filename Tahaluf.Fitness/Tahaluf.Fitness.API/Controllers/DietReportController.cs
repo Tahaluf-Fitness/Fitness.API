@@ -12,7 +12,7 @@ namespace Tahaluf.Fitness.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DietReportController : ControllerBase
+    public class DietReportController : Controller
     {
         private readonly IDietReportService dietReportService;
         public DietReportController(IDietReportService dietReportService)
@@ -35,14 +35,7 @@ namespace Tahaluf.Fitness.API.Controllers
             return dietReportService.CreateDietReport(dietReport);
         }
 
-        //[HttpPost]
-        //[Route("my-reports/{id}")]
-        //[ProducesResponseType(typeof(List<DietReport>), StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //public List<DietReport> GetDietReportByUserID(int id)
-        //{
-        //    return dietReportService.GetDietReportByUserID(id);
-        //}
+       
 
 
         [HttpPut]

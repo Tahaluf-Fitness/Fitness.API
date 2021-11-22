@@ -37,6 +37,16 @@ namespace Tahaluf.Fitness.Infra.Service
             return usersRepository.CreateEmployee(user);
         }
 
+        public bool updateUserByID(int id, User user)
+        {
+            return usersRepository.updateUserByID(id, user);
+        }
+
+        public List<StatisticsDTO> getStatistics()
+        {
+            return usersRepository.getStatistics();
+        }
+
 
 
 

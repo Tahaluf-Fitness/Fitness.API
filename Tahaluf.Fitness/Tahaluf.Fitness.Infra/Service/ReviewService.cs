@@ -31,9 +31,21 @@ namespace Tahaluf.Fitness.Infra.Service
             return reviewRepository.GetReview();
         }
 
+        public List<Review> GetCheckedReview()
+        {
+            return reviewRepository.GetCheckedReview();
+        }
+
+
         public bool UpdateReview(Review review)
         {
             return reviewRepository.UpdateReview(review);
         }
+
+        public bool updateReviewStatus(int id,Review review)
+        {
+            return reviewRepository.updateReviewStatus(id, review);
+        }
+
     }
 }
