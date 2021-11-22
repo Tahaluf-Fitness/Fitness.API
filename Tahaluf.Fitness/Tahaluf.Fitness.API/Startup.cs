@@ -84,6 +84,8 @@ namespace Tahaluf.Fitness.API
             services.AddScoped<IDiseaseService, DiseaseService>();
             services.AddScoped<IMeasurementRepository, MeasurementRepository>();
             services.AddScoped<IMeasurementService, MeasurementService>();
+            services.AddScoped<IBestFoodRepository, BestFoodRepository>();
+            services.AddScoped<IBestFoodService, BestFoodService>();
 
             //////
             services.AddScoped<IUsersRepository, UsersRepository>();
