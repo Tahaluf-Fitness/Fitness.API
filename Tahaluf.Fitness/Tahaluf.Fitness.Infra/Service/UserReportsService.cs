@@ -31,6 +31,9 @@ namespace Tahaluf.Fitness.Infra.Service
             return userReportsRepository.GetAllUserReport();
         }
 
+       
+
+
 
 
     }

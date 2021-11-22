@@ -11,6 +11,10 @@ namespace Tahaluf.Fitness.Core.Service
         bool UpdateReview(Review review);
         bool DeleteReview(int id);
         List<Review> GetReview();
+        public List<Review> GetCheckedReview();
+        public bool updateReviewStatus(int id, Review review);
+
+
 
     }
 }

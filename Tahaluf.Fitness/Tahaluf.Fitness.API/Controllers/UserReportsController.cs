@@ -38,6 +38,8 @@ namespace Tahaluf.Fitness.API.Controllers
             return userReportsService.GetAllUserReport();
         }
 
+    
+
         [HttpDelete]
         [Route("delete/{id}")]
         [ProducesResponseType(typeof(UserReports), StatusCodes.Status200OK)]

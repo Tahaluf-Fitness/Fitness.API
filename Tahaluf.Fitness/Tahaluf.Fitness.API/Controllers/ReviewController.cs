@@ -25,6 +25,13 @@ namespace Tahaluf.Fitness.API.Controllers
         {
             return reviewService.GetReview();
         }
+        [HttpGet]
+        [Route("[action]")]
+        [ProducesResponseType(typeof(List<Review>), StatusCodes.Status200OK)]
+        public List<Review> GetCheckedReview()
+        {
+            return reviewService.GetCheckedReview();
+        }
 
 
         [HttpPost]
@@ -43,6 +50,16 @@ namespace Tahaluf.Fitness.API.Controllers
         public bool UpdateReview(Review review)
         {
             return reviewService.UpdateReview(review);
+        }
+
+        [HttpPut]
+        [Route("update/{id}")]
+        [ProducesResponseType(typeof(Review), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public bool updateReviewStatus(int id,Review review)
+        {
+            return reviewService.updateReviewStatus(id,review);
         }
 
 

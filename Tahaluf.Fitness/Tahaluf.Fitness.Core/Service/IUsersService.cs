@@ -15,6 +15,10 @@ namespace Tahaluf.Fitness.Core.Service
         public List<ClientDTO> GetAllClients();
         public bool DeleteUser(int id);
         public bool CreateEmployee(User user);
+        public bool updateUserByID(int id, User user);
+        public List<StatisticsDTO> getStatistics();
+
+
 
 
 

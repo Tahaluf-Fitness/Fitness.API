@@ -42,6 +42,13 @@ namespace Tahaluf.Fitness.API.Controllers
         {
             return usersService.GetAllClients();
         }
+        [HttpGet]
+        [Route("[action]")]
+        [ProducesResponseType(typeof(List<StatisticsDTO>), StatusCodes.Status200OK)]
+        public List<StatisticsDTO> getStatistics()
+        {
+            return usersService.getStatistics();
+        }
 
         [HttpPost]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
@@ -49,6 +56,15 @@ namespace Tahaluf.Fitness.API.Controllers
         public bool CreateEmployee(User user)
         {
             return usersService.CreateEmployee(user);
+        }
+
+        [HttpPut]
+        [Route("update/{id}")]
+        [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool updateUserByID(int id,User user)
+        {
+            return usersService.updateUserByID(id,user);
         }
 
 
