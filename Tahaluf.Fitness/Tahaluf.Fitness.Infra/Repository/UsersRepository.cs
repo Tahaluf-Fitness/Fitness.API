@@ -91,6 +91,23 @@ namespace Tahaluf.Fitness.Infra.Repository
 
         }
 
+        public List<ClientDTO> searchUserByFirstname(string firstname)
+        {
+            var p = new DynamicParameters();
+            p.Add("@FirstName", firstname, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<ClientDTO> result = dbContext.Connection.Query<ClientDTO>("searchUserByName", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+        public List<ClientDTO> searchEmployeeByFirstname(string firstname)
+        {
+            var p = new DynamicParameters();
+            p.Add("@FirstName", firstname, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<ClientDTO> result = dbContext.Connection.Query<ClientDTO>("searchEmployeeByName", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
 
         public bool DeleteUser(int id)
         {

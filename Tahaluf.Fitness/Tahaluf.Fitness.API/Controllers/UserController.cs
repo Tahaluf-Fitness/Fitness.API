@@ -77,5 +77,21 @@ namespace Tahaluf.Fitness.API.Controllers
             return usersService.DeleteUser(id);
         }
 
+        [HttpGet]
+        [Route("search/{firstName}")]
+        [ProducesResponseType(typeof(List<ClientDTO>), StatusCodes.Status200OK)]
+        public List<ClientDTO> searchUserByFirstname(string firstName)
+        {
+            return usersService.searchUserByFirstname(firstName);
+        }
+
+        [HttpGet]
+        [Route("search1/{firstName}")]
+        [ProducesResponseType(typeof(List<ClientDTO>), StatusCodes.Status200OK)]
+        public List<ClientDTO> searchEmployeeByFirstname(string firstName)
+        {
+            return usersService.searchEmployeeByFirstname(firstName);
+        }
+
     }
 }

@@ -27,6 +27,15 @@ namespace Tahaluf.Fitness.API.Controllers
         {
             return dietReportService.GetDietReport();
         }
+
+        [HttpGet]
+        [Route("search/{categoryName}")]
+        [ProducesResponseType(typeof(List<getDietInfoDTO>), StatusCodes.Status200OK)]
+        public List<getDietInfoDTO> SearchDietnByCategory(string categoryName)
+        {
+            return dietReportService.SearchDietnByCategory(categoryName);
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(List<DietReport>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
