@@ -17,9 +17,8 @@ namespace Tahaluf.Fitness.Core.Reopsitory
         public bool updateUserByID(int id, User user);
 
         public List<StatisticsDTO> getStatistics();
-
-
-
+        public List<ClientDTO> searchUserByFirstname(string firstname);
+        public List<ClientDTO> searchEmployeeByFirstname(string firstname);
 
 
     }

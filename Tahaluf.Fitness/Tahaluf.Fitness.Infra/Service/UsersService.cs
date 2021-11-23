@@ -46,15 +46,20 @@ namespace Tahaluf.Fitness.Infra.Service
         {
             return usersRepository.getStatistics();
         }
-
-
-
-
-
         public bool DeleteUser(int id)
         {
             return usersRepository.DeleteUser(id);
         }
+
+        public List<ClientDTO> searchUserByFirstname(string firstname)
+        {
+            return usersRepository.searchUserByFirstname(firstname);
+        }
+        public List<ClientDTO> searchEmployeeByFirstname(string firstname)
+        {
+            return usersRepository.searchEmployeeByFirstname(firstname);
+        }
+
 
     }
 }

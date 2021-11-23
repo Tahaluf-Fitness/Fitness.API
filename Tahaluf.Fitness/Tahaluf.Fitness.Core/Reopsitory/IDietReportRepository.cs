@@ -12,6 +12,8 @@ namespace Tahaluf.Fitness.Core.Reopsitory
         public bool CreateDietReport(DietReport dietReport);
         public bool UpdateDietReport(DietReport dietReport);
         public bool DeleteDietReport(int id);
+        public List<getDietInfoDTO> SearchDietnByCategory(string categoryName);
+
 
 
     }

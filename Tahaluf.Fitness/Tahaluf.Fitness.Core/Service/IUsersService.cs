@@ -17,6 +17,9 @@ namespace Tahaluf.Fitness.Core.Service
         public bool CreateEmployee(User user);
         public bool updateUserByID(int id, User user);
         public List<StatisticsDTO> getStatistics();
+        public List<ClientDTO> searchUserByFirstname(string firstname);
+        public List<ClientDTO> searchEmployeeByFirstname(string firstname);
+
 
 
 

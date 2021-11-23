@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tahaluf.Fitness.Core.Data;
 using Tahaluf.Fitness.Core.DTO;
 using Tahaluf.Fitness.Core.Reopsitory;
 using Tahaluf.Fitness.Core.Service;
@@ -31,7 +32,19 @@ namespace Tahaluf.Fitness.Infra.Service
             return userReportsRepository.GetAllUserReport();
         }
 
-       
+        public bool CreateUserReport(UserReports userReports)
+        {
+            return userReportsRepository.CreateUserReport(userReports);
+        }
+
+        public List<SearchDietByUserEmailDTO> SearchDietByUserEmailDTO(string email)
+        {
+            return userReportsRepository.SearchDietByUserEmailDTO(email);
+        }
+
+
+
+
 
 
 

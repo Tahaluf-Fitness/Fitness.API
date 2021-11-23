@@ -38,7 +38,15 @@ namespace Tahaluf.Fitness.API.Controllers
             return userReportsService.GetAllUserReport();
         }
 
-    
+        [HttpPost]
+        [ProducesResponseType(typeof(UserReports), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool CreateUserReport(UserReports userReports)
+        {
+            return userReportsService.CreateUserReport(userReports);
+        }
+
+
 
         [HttpDelete]
         [Route("delete/{id}")]
@@ -47,6 +55,14 @@ namespace Tahaluf.Fitness.API.Controllers
         public bool deleteUserReport(int id)
         {
             return userReportsService.DeleteUserReport(id);
+        }
+
+        [HttpGet]
+        [Route("search/{email}")]
+        [ProducesResponseType(typeof(List<SearchDietByUserEmailDTO>), StatusCodes.Status200OK)]
+        public List<SearchDietByUserEmailDTO> SearchDietByUserEmailDTO(string email)
+        {
+            return userReportsService.SearchDietByUserEmailDTO(email);
         }
     }
 }

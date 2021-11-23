@@ -62,5 +62,13 @@ namespace Tahaluf.Fitness.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("DeleteDietReport", parameter, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<getDietInfoDTO> SearchDietnByCategory(string categoryName)
+        {
+            var p = new DynamicParameters();
+            p.Add("@CategoryName", categoryName, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<getDietInfoDTO> result = dbContext.Connection.Query<getDietInfoDTO>("searchByDietCategory", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

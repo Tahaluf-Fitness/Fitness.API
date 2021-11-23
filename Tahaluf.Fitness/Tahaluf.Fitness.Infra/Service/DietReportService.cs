@@ -33,8 +33,13 @@ namespace Tahaluf.Fitness.Infra.Service
         {
             return dietReportRepository.DeleteDietReport(id);
         }
+        public List<getDietInfoDTO> SearchDietnByCategory(string categoryName)
+        {
+            return dietReportRepository.SearchDietnByCategory(categoryName);
+        }
 
-       
+
+
 
     }
 }
